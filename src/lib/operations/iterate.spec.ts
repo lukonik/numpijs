@@ -3,6 +3,9 @@ import { NDArray } from '../ndarray/ndarray';
 import { DataTypes } from '../ndarray/data-types';
 
 describe('iterate', () => {
+  it('failed test', () => {
+    expect(2).toBe(3);
+  });
   it('should iterate over all elements in the NDArray and return value, position, and indexes', () => {
     const nd = new NDArray({
       data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
