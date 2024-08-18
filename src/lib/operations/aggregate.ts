@@ -4,18 +4,23 @@ import { iterate } from './iterate';
 
 export function aggregate(options: {
   axis?: null | number;
-  initialValue?: number | null;
+  initial?: number | null;
   action: (prev, curr) => number;
+  where?: (value) => boolean;
 }) {
   return (nd: NDArray) => {
     if (options.axis === null || options.axis === undefined) {
       const allValues = Array.from(iterate(nd)).map((d) => d.value);
 
-      let initialValue = options?.initialValue ?? 0;
-      for (const value of allValues) {
-        initialValue = options.action(initialValue, value);
+      const initialValue = options?.initial ?? 0;
+      let result = initialValue;
+      for (let value of allValues) {
+        if (options?.where && !options.where(value)) {
+          value = initialValue;
+        }
+        result = options.action(result, value);
       }
-      return initialValue;
+      return result;
     }
 
     const axisShapeIndex = nd.shape.findIndex(
@@ -36,7 +41,7 @@ export function aggregate(options: {
     const grouppedIndexes = groupBy(allIndexesHash, (k) => k.key);
 
     const result = [];
-    const initialValue = options?.initialValue ?? 0;
+    const initialValue = options?.initial ?? 0;
     for (const key of Object.keys(grouppedIndexes)) {
       let accumulate = initialValue;
       const grouppedIndex = grouppedIndexes[key];
@@ -44,7 +49,11 @@ export function aggregate(options: {
       const values = indexesValue.map((i) =>
         nd.get(indexesToPosition(i, nd.shape))
       );
-      for (const value of values) {
+
+      for (let value of values) {
+        if (options?.where && !options.where(value)) {
+          value = initialValue;
+        }
         accumulate = options.action(accumulate, value);
       }
       result.push(accumulate);
