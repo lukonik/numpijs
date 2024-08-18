@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nx build",
     "test": "nx test",
+    "test-watch": "nx test-watch",
     "lint": "nx lint"
   },
   "dependencies": {

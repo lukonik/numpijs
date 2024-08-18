@@ -23,6 +23,14 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "reportsDirectory": "coverage/numpijs",
+        "watch": false
+      }
+    },
+    "test-watch": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "coverage/numpijs",
         "watch": true
       }
     }
