@@ -31,7 +31,7 @@ export class NDArray {
     return this._data;
   }
 
-  constructor(options: { data: number[]; dtype: DataTypes; shape: number[] }) {
+  constructor(options: { data: number[]; dtype?: DataTypes; shape: number[] }) {
     this._dtype = options.dtype;
     this._shape = options.shape;
     this._strides = [];
@@ -69,6 +69,10 @@ export class NDArray {
         break;
       case DataTypes.Float64:
         this._data = new Float64Array(data);
+        break;
+      default:
+        this._data = new Float32Array(data);
+        this._dtype = DataTypes.Float32;
         break;
     }
   }

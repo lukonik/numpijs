@@ -6,7 +6,9 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
@@ -20,7 +22,7 @@
         "@nx/dependency-checks": [
           "error",
           {
-            "ignoredFiles": ["{projectRoot}/vite.config.{js,ts,mjs,mts}"]
+            "ignoredFiles": ["{projectRoot}/vite.config.{js,ts,mjs,mts}","{projectRoot}/src/lib/tests/**"]
           }
         ]
       }
