@@ -1,5 +1,5 @@
 {
-  "name": "@numpijs/source",
+  "name": "numpijs",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
