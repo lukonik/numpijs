@@ -1,8 +1,6 @@
-import { DataTypes } from '../ndarray/data-types';
 import { NDArray } from '../ndarray/ndarray';
 import { indexesToPosition } from './indexes-to-position';
 import { iterate } from './iterate';
-import { positionToIndexes } from './position-to-indexes';
 
 export function aggregate(options: {
   axis?: null | number;
