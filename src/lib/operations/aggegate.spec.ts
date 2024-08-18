@@ -69,7 +69,7 @@ describe('Aggregate', () => {
     );
     expect(aggr).toBe(60);
   });
-  it.only('Axis 1 with where condition', () => {
+  it('Axis 1 with where condition', () => {
     const aggr = nd.do(
       aggregate({
         action: (prev, curr) => prev + curr,
@@ -83,7 +83,7 @@ describe('Aggregate', () => {
     });
     expect(aggr).toNDArrayEqual(check);
   });
-  it.only('Axis 2 with where condition', () => {
+  it('Axis 2 with where condition', () => {
     const aggr = nd.do(
       aggregate({
         action: (prev, curr) => prev + curr,
@@ -97,7 +97,7 @@ describe('Aggregate', () => {
     });
     expect(aggr).toNDArrayEqual(check);
   });
-  it.only('Axis 3 with where condition', () => {
+  it('Axis 3 with where condition', () => {
     const aggr = nd.do(
       aggregate({
         action: (prev, curr) => prev + curr,
