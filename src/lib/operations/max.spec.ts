@@ -11,7 +11,7 @@ describe('Max', () => {
       shape: [2, 3, 3],
     });
   });
-  it.only('Axis 1', () => {
+  it('Axis 1', () => {
     const aggr = nd.do(
       max({
         axis: 0,
