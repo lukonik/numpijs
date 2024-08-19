@@ -31,6 +31,10 @@ export class NDArray {
     return this._data;
   }
 
+  get length(){
+    return this._data.length;
+  }
+
   constructor(options: { data: number[]; dtype?: DataTypes; shape: number[] }) {
     this._dtype = options.dtype;
     this._shape = options.shape;
