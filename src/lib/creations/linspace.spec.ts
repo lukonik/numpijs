@@ -17,7 +17,7 @@ describe('linspace', () => {
     expect(result).toEqual([5, 5, 5, 5]);
   });
 
-  test.only('throws an error if num is not a positive integer', () => {
+  test('throws an error if num is not a positive integer', () => {
     expect(() => linspace({ start: 0, stop: 10, num: 0 })).toThrow(
       'num must be a positive integer.'
     );
