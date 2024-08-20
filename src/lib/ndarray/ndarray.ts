@@ -31,7 +31,7 @@ export class NDArray {
     return this._data;
   }
 
-  get length(){
+  get length() {
     return this._data.length;
   }
 
@@ -39,6 +39,7 @@ export class NDArray {
     this._dtype = options.dtype;
     this._shape = options.shape;
     this._strides = [];
+    this.validateShape(options.data, options.shape);
     for (let i = 0; i < this._shape.length; i++) {
       const stride = this.shape
         .slice(i + 1)
@@ -46,6 +47,16 @@ export class NDArray {
       this.strides.push(stride);
     }
     this.createStorage(options.data);
+  }
+
+  private validateShape(data: number[], shape: number[]) {
+    const totalElements = shape.reduce((a, b) => a * b, 1);
+    // Check if total elements match
+    if (data.length !== totalElements) {
+      throw new Error(
+        `Shape and data are not compatible shape:${shape}, data length:${data.length}`
+      );
+    }
   }
 
   private createStorage(data: number[]) {
