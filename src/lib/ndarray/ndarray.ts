@@ -1,3 +1,4 @@
+import { _stringify } from '../operations/stringified/_stringify';
 import { DataTypes } from './data-types';
 type TypedArray =
   | Int8Array
@@ -99,5 +100,9 @@ export class NDArray {
 
   get(position: number) {
     return this._data[position];
+  }
+
+  toString() {
+    return _stringify(this);
   }
 }
