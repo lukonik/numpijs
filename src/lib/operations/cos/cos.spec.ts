@@ -1,4 +1,4 @@
-import { array } from 'src/lib/creations/array';
+import { array } from '../array/array';
 import { cos } from './cos';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 import { stringified } from '../stringified/stringified';

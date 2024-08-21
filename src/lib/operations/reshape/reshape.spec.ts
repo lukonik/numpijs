@@ -1,6 +1,5 @@
 import { describe } from 'node:test';
-import { array } from 'src/lib/creations/array';
-import { reshape } from './reshape';
+import { array } from '../array/array';import { reshape } from './reshape';
 
 describe('Reshape', () => {
   it('reshape test', () => {
