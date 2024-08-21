@@ -11,3 +11,9 @@ export function _shapesAreEqual(a: number[], b: number[]) {
   }
   return true;
 }
+
+export function _assertShapesAreEqual(a: number[], b: number[]) {
+  if (!_shapesAreEqual(a, b)) {
+    throw new Error(`Shapes are not compatible, a:${a}, b:${b}`);
+  }
+}
