@@ -1,6 +1,6 @@
-import { DataTypes } from '../ndarray/data-types';
-import { NDArray } from '../ndarray/ndarray';
-import { isNill } from '../utils/is-nill';
+import { DataTypes } from '../../ndarray/data-types';
+import { NDArray } from '../../ndarray/ndarray';
+import { isNill } from '../../utils/is-nill';
 
 export function linspace(options: {
   start: number;

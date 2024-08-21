@@ -1,4 +1,4 @@
-import { array } from 'src/lib/creations/array';
+import { array } from '../array/array';
 import { sqrt } from './sqrt';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('sqrt', () => {

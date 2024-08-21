@@ -1,6 +1,6 @@
-import { DataTypes } from '../ndarray/data-types';
-import { NDArray } from '../ndarray/ndarray';
-import { array } from './array';
+import { DataTypes } from '../../ndarray/data-types';
+import { NDArray } from '../../ndarray/ndarray';
+import { array } from '../array/array';
 
 export function randint(options: {
   low: number;

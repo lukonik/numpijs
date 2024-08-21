@@ -1,4 +1,4 @@
-import { array } from './array';
+import { array } from '../array/array';
 import { linspace } from './linspace';
 
 describe('linspace', () => {

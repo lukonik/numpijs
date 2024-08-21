@@ -1,6 +1,6 @@
 import { createNDArray } from 'src/lib/common/create-nd-array';
 import { DataTypes } from 'src/lib/ndarray/data-types';
 
-export function rand(size: number, dtype?: DataTypes) {
-  return createNDArray([size], () => Math.random(), dtype);
+export function zeros(shape: number[], dtype?: DataTypes) {
+  return createNDArray(shape, () => 0, dtype);
 }
