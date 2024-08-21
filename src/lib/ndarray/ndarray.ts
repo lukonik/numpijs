@@ -1,3 +1,4 @@
+import { _createStorageByType } from '../common/_create-storage-by-type';
 import { _stringify } from '../operations/stringified/_stringify';
 import { DataTypes } from './data-types';
 type TypedArray =
@@ -61,36 +62,10 @@ export class NDArray {
   }
 
   private createStorage(data: number[]) {
-    switch (this.dtype) {
-      case DataTypes.Int8:
-        this._data = new Int8Array(data);
-        break;
-      case DataTypes.Int16:
-        this._data = new Int16Array(data);
-        break;
-      case DataTypes.Int32:
-        this._data = new Int32Array(data);
-        break;
-      case DataTypes.UInt8:
-        this._data = new Uint8Array(data);
-        break;
-      case DataTypes.UInt16:
-        this._data = new Uint16Array(data);
-        break;
-      case DataTypes.UInt32:
-        this._data = new Uint32Array(data);
-        break;
-      case DataTypes.Float32:
-        this._data = new Float32Array(data);
-        break;
-      case DataTypes.Float64:
-        this._data = new Float64Array(data);
-        break;
-      default:
-        this._data = new Float32Array(data);
-        this._dtype = DataTypes.Float32;
-        break;
+    if (!this._dtype) {
+      this._dtype = DataTypes.Float32;
     }
+    this._data = _createStorageByType(data, this.dtype);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -100,6 +75,10 @@ export class NDArray {
 
   get(position: number) {
     return this._data[position];
+  }
+
+  set(position: number, value: number) {
+    this._data[position] = value;
   }
 
   toString() {
