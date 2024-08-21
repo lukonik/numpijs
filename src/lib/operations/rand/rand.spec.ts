@@ -1,7 +1,5 @@
+import { array } from '../array/array';
 import { rand } from './rand';
-import { createNDArray } from './create-nd-array';
-import { DataTypes } from '../ndarray/data-types';
-import { array } from './array';
 
 describe('rand', () => {
   beforeEach(() => {

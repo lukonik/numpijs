@@ -1,6 +1,6 @@
 import { describe } from 'node:test';
-import { NDArray } from '../ndarray/ndarray';
 import { ones } from './ones';
+import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('Ones', () => {
   it('check on value', () => {
     const result = ones([2, 2]);

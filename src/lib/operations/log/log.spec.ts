@@ -1,5 +1,4 @@
-import { array } from 'src/lib/creations/array';
-import { log } from './log';
+import { array } from '../array/array';import { log } from './log';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('Log', () => {
   it('log test', () => {

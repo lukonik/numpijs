@@ -1,5 +1,4 @@
-import { array } from 'src/lib/creations/array';
-import { pow } from './pow';
+import { array } from '../array/array';import { pow } from './pow';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('pow', () => {
   it('pow test', () => {

@@ -1,5 +1,5 @@
-import { DataTypes } from '../ndarray/data-types';
-import { NDArray } from '../ndarray/ndarray';
+import { DataTypes } from '../../ndarray/data-types';
+import { NDArray } from '../../ndarray/ndarray';
 
 export function arange(options: {
   start?: number;

@@ -1,4 +1,4 @@
-import { NDArray } from '../ndarray/ndarray';
+import { NDArray } from 'src/lib/ndarray/ndarray';
 import { array } from './array';
 
 describe('Array', () => {

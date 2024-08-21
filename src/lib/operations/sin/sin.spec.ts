@@ -1,4 +1,4 @@
-import { array } from 'src/lib/creations/array';
+import { array } from '../array/array';
 import { sin } from './sin';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('Sin', () => {

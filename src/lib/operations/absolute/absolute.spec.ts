@@ -1,5 +1,4 @@
-import { array } from 'src/lib/creations/array';
-import { absolute } from './absolute';
+import { array } from '../array/array';import { absolute } from './absolute';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('Absolute', () => {
   it('abs test', () => {
