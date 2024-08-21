@@ -1,1 +1,0 @@
-npx nx reset && npm run build && npm run test && npm run lint
