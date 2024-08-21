@@ -1,5 +1,5 @@
-import { DataTypes } from '../ndarray/data-types';
-import { NDArray } from '../ndarray/ndarray';
+import { DataTypes } from 'src/lib/ndarray/data-types';
+import { NDArray } from 'src/lib/ndarray/ndarray';
 
 export function array(data: any[], dtype?: DataTypes) {
   const flattened = data.flat(Infinity);
