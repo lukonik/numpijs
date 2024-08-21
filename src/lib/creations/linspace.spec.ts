@@ -16,8 +16,6 @@ describe('linspace', () => {
 
   test('generates a single value if num is 1', () => {
     const result = linspace({ start: 0, stop: 10, num: 1 });
-    console.log(result);
-    console.log(array([0]));
     expect(result).toNDArrayEqual(array([0]));
   });
 

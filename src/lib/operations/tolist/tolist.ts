@@ -1,5 +1,5 @@
+import { indexesToPosition } from 'src/lib/common/indexes-to-position';
 import { NDArray } from 'src/lib/ndarray/ndarray';
-import { indexesToPosition } from '../indexes-to-position';
 
 export function tolist(nd: NDArray) {
   const rootShape = nd.shape;
