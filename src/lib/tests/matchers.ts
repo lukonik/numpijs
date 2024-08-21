@@ -14,7 +14,7 @@ export function toNDArrayEqual(a: NDArray, b: NDArray) {
   if (!this.equals(a.data, b.data)) {
     return {
       message: () =>
-        `shapes do not match actual data is ${a.data} and expected data is ${b.data}`,
+        `data do not match actual data is ${a.data} and expected data is ${b.data}`,
       pass: false,
     };
   }
