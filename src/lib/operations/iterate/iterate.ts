@@ -1,5 +1,5 @@
-import { NDArray } from '../ndarray/ndarray';
-import { positionToIndexes } from './position-to-indexes';
+import { NDArray } from 'src/lib/ndarray/ndarray';
+import { positionToIndexes } from '../position-to-indexes';
 
 export function iterate(ndArray: NDArray) {
   const shape = ndArray.shape;
