@@ -1,6 +1,6 @@
+import { DataTypes } from 'src/lib/ndarray/data-types';
+import { NDArray } from 'src/lib/ndarray/ndarray';
 import { iterate } from './iterate';
-import { NDArray } from '../ndarray/ndarray';
-import { DataTypes } from '../ndarray/data-types';
 
 describe('iterate', () => {
   it('should iterate over all elements in the NDArray and return value, position, and indexes', () => {

@@ -1,6 +1,6 @@
-import { DataTypes } from '../ndarray/data-types';
-import { NDArray } from '../ndarray/ndarray';
+import { NDArray } from 'src/lib/ndarray/ndarray';
 import { sum } from './sum';
+import { DataTypes } from 'src/lib/ndarray/data-types';
 
 describe('Sum', () => {
   let nd: NDArray;

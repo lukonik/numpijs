@@ -1,6 +1,6 @@
-import { DataTypes } from '../ndarray/data-types';
-import { NDArray } from '../ndarray/ndarray';
-import { max } from './max';
+import { DataTypes } from 'src/lib/ndarray/data-types';
+import { NDArray } from 'src/lib/ndarray/ndarray';
+import {max} from "./max";
 
 describe('Max', () => {
   let nd: NDArray;
