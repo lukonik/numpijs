@@ -1,13 +1,21 @@
 import { NDArray } from '../ndarray/ndarray';
 import { _shapesAreEqual } from './_shapes-are-equal';
+import { broadcast } from './broadcast';
 
 export function _operateBetween(
   a: NDArray,
-  b: NDArray,
+  b: NDArray | number,
   operand: (a: number, b: number) => number
 ) {
+  if (typeof b === 'number') {
+    b = new NDArray({
+      data: [b],
+      shape: [1],
+    });
+  }
+
   if (!_shapesAreEqual(a.shape, b.shape)) {
-    throw new Error(`Shapes are not compatible, a:${a.shape}, b:${b.shape}`);
+    return broadcast(a, b, operand);
   }
   const result = [];
 
