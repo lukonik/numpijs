@@ -3,15 +3,15 @@ import { DataTypes } from 'src/lib/ndarray/data-types';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 
 export function pow(options: {
+  nd: NDArray;
   where?: (value) => boolean;
   dtype?: DataTypes;
   exponent: number;
 }) {
-  return (base: NDArray) =>
-    _elementWiseUpdate(
-      base,
-      (value) => Math.pow(value, options.exponent),
-      options?.where,
-      options?.dtype
-    );
+  return _elementWiseUpdate(
+    options.nd,
+    (value) => Math.pow(value, options.exponent),
+    options?.where,
+    options?.dtype
+  );
 }

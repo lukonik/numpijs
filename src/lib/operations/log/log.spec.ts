@@ -1,9 +1,10 @@
-import { array } from '../array/array';import { log } from './log';
+import { array } from '../array/array';
+import { log } from './log';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('Log', () => {
   it('log test', () => {
     const nd = array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    const result = nd.do(log());
+    const result = log({ nd });
     const check = new NDArray({
       data: [
         0, 0.6931471824645996, 1.0986123085021973, 1.3862943649291992,

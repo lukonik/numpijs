@@ -4,7 +4,7 @@ import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('sqrt', () => {
   it('sqrt test', () => {
     const nd = array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    const result = nd.do(sqrt());
+    const result = sqrt({ nd });
     const check = new NDArray({
       data: [
         1, 1.4142135381698608, 1.7320507764816284, 2, 2.2360680103302,

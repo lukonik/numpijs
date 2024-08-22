@@ -8,7 +8,7 @@ export function _stringify(nd: NDArray) {
     DataTypes[nd.dtype]
   }} \n data=(`;
 
-  const list = tolist()(nd);
+  const list = tolist(nd);
 
   function rec(array: any[]) {
     if (!Array.isArray(array)) {

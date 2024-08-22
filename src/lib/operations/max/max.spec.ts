@@ -1,6 +1,6 @@
 import { DataTypes } from 'src/lib/ndarray/data-types';
 import { NDArray } from 'src/lib/ndarray/ndarray';
-import {max} from "./max";
+import { max } from './max';
 
 describe('Max', () => {
   let nd: NDArray;
@@ -12,11 +12,10 @@ describe('Max', () => {
     });
   });
   it('Axis 1', () => {
-    const aggr = nd.do(
-      max({
-        axis: 0,
-      })
-    );
+    const aggr = max({
+      nd: nd,
+      axis: 0,
+    });
     const check = new NDArray({
       data: [5, 6, 10, 7, 8, 13, 11, 12, 14],
       shape: [3, 3],

@@ -12,7 +12,7 @@ describe('Multiply', () => {
       shape: [2, 3],
     });
 
-    const result = nd1.do(multiply(nd2));
+    const result = multiply(nd1, nd2);
     const check = new NDArray({
       shape: [2, 3],
       data: [70, 72, 72, 60, 22, 12],

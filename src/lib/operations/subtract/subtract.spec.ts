@@ -12,7 +12,7 @@ describe('Subtract', () => {
       shape: [2, 3],
     });
 
-    const result = nd1.do(subtract(nd2));
+    const result = subtract(nd1, nd2);
     const check = new NDArray({
       shape: [2, 3],
       data: [3, 1, -1, -4, -9, -11],
