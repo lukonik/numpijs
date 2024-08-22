@@ -7,11 +7,10 @@ export function absolute(options: {
   where?: (value) => boolean;
   dtype?: DataTypes;
 }) {
-  return (base: NDArray) =>
-    _elementWiseUpdate(
-      base,
-      (value) => Math.abs(value),
-      options.where,
-      options.dtype
-    );
+  return _elementWiseUpdate(
+    options.nd,
+    (value) => Math.abs(value),
+    options.where,
+    options.dtype
+  );
 }
