@@ -4,8 +4,7 @@ import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('pow', () => {
   it('pow test', () => {
     const nd = array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    const result = pow({
-      nd: nd,
+    const result = pow(nd, {
       exponent: 2,
     });
 
