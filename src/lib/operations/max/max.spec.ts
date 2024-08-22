@@ -12,8 +12,7 @@ describe('Max', () => {
     });
   });
   it('Axis 1', () => {
-    const aggr = max({
-      nd: nd,
+    const aggr = max(nd, {
       axis: 0,
     });
     const check = new NDArray({

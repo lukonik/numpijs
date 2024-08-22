@@ -2,15 +2,17 @@ import { NDArray } from '../ndarray/ndarray';
 import { iterate } from '../operations/iterate/iterate';
 import { indexesToPosition } from './indexes-to-position';
 
-export function aggregate(options: {
-  nd: NDArray;
-  axis?: null | number;
-  initial?: number | null;
-  action: (prev, curr) => number;
-  where?: (value) => boolean;
-}) {
+export function aggregate(
+  nd: NDArray,
+  options?: {
+    axis?: null | number;
+    initial?: number | null;
+    action: (prev, curr) => number;
+    where?: (value) => boolean;
+  }
+) {
   if (options.axis === null || options.axis === undefined) {
-    const allValues = Array.from(iterate(options.nd)).map((d) => d.value);
+    const allValues = Array.from(iterate(nd)).map((d) => d.value);
 
     const initialValue = options?.initial ?? 0;
     let result = initialValue;
@@ -23,7 +25,7 @@ export function aggregate(options: {
     return result;
   }
 
-  const axisShapeIndex = options.nd.shape.findIndex(
+  const axisShapeIndex = nd.shape.findIndex(
     (_, index) => index === options.axis
   );
 
@@ -31,7 +33,7 @@ export function aggregate(options: {
     throw new Error('Axis not found');
   }
 
-  const allIndexes = Array.from(iterate(options.nd)).map((d) => d.indexes);
+  const allIndexes = Array.from(iterate(nd)).map((d) => d.indexes);
 
   const allIndexesHash = allIndexes.map((a) => ({
     value: a,
@@ -47,7 +49,7 @@ export function aggregate(options: {
     const grouppedIndex = grouppedIndexes[key];
     const indexesValue = grouppedIndex.map((d) => d.value);
     const values = indexesValue.map((i) =>
-      options.nd.get(indexesToPosition(i, options.nd.shape))
+      nd.get(indexesToPosition(i, nd.shape))
     );
 
     for (let value of values) {
@@ -60,8 +62,8 @@ export function aggregate(options: {
   }
   const newArray = new NDArray({
     data: result,
-    dtype: options.nd.dtype,
-    shape: options.nd.shape.filter((item, index) => index !== axisShapeIndex),
+    dtype: nd.dtype,
+    shape: nd.shape.filter((item, index) => index !== axisShapeIndex),
   });
   return newArray;
 }

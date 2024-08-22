@@ -12,8 +12,7 @@ describe('Aggregate', () => {
     });
   });
   it('Axis 1', () => {
-    const aggr = aggregate({
-      nd: nd,
+    const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       axis: 0,
     });
@@ -25,8 +24,7 @@ describe('Aggregate', () => {
     expect(aggr).toNDArrayEqual(check);
   });
   it('Axis 2', () => {
-    const aggr = aggregate({
-      nd: nd,
+    const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       axis: 1,
     });
@@ -38,8 +36,7 @@ describe('Aggregate', () => {
     expect(aggr).toNDArrayEqual(check);
   });
   it('Axis 3', () => {
-    const aggr = aggregate({
-      nd: nd,
+    const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       axis: 2,
     });
@@ -52,8 +49,7 @@ describe('Aggregate', () => {
   });
 
   it('Axis null', () => {
-    const aggr = aggregate({
-      nd: nd,
+    const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
     });
 
@@ -61,8 +57,7 @@ describe('Aggregate', () => {
   });
 
   it('Axis null with where condition', () => {
-    const aggr = aggregate({
-      nd: nd,
+    const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       where: (value) => value < 10,
     });
@@ -70,8 +65,7 @@ describe('Aggregate', () => {
     expect(aggr).toBe(60);
   });
   it('Axis 1 with where condition', () => {
-    const aggr = aggregate({
-      nd: nd,
+    const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       where: (value) => value < 10,
       axis: 1,
@@ -84,8 +78,7 @@ describe('Aggregate', () => {
     expect(aggr).toNDArrayEqual(check);
   });
   it('Axis 2 with where condition', () => {
-    const aggr = aggregate({
-      nd: nd,
+    const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       where: (value) => value < 10,
       axis: 2,
@@ -98,8 +91,7 @@ describe('Aggregate', () => {
     expect(aggr).toNDArrayEqual(check);
   });
   it('Axis 3 with where condition', () => {
-    const aggr = aggregate({
-      nd: nd,
+    const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       where: (value) => value % 2 == 0,
       axis: 2,

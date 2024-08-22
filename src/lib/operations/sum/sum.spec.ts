@@ -12,8 +12,7 @@ describe('Sum', () => {
     });
   });
   it('Axis 1', () => {
-    const aggr = sum({
-      nd: nd,
+    const aggr = sum(nd, {
       axis: 0,
     });
     const check = new NDArray({
@@ -23,8 +22,7 @@ describe('Sum', () => {
     expect(aggr).toNDArrayEqual(check);
   });
   it('Axis 2', () => {
-    const aggr = sum({
-      nd: nd,
+    const aggr = sum(nd, {
       axis: 1,
     });
     const check = new NDArray({
@@ -34,8 +32,7 @@ describe('Sum', () => {
     expect(aggr).toNDArrayEqual(check);
   });
   it('Axis 3', () => {
-    const aggr = sum({
-      nd: nd,
+    const aggr = sum(nd, {
       axis: 2,
     });
     const check = new NDArray({
@@ -46,7 +43,7 @@ describe('Sum', () => {
   });
 
   it('Axis null', () => {
-    const aggr = sum({ nd });
+    const aggr = sum(nd);
     expect(aggr).toBe(130);
   });
 });

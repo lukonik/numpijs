@@ -4,7 +4,7 @@ import { NDArray } from 'src/lib/ndarray/ndarray';
 describe('Sin', () => {
   it('sin test', () => {
     const nd = array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    const result = sin({ nd });
+    const result = sin(nd);
     const check = new NDArray({
       data: [
         0.8414709568023682, 0.9092974066734314, 0.14112000167369843,
