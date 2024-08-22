@@ -1,5 +1,5 @@
 describe('randInt', () => {
-  it.skip(() => {
+  it(() => {
     console.log('test');
   });
 });
