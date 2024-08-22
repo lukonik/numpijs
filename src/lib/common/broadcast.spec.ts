@@ -47,18 +47,19 @@ describe('addWithBroadcasting', () => {
     expect(result).toNDArrayEqual(check);
   });
 
-  // it('should handle broadcasting with scalar values', () => {
-  //   const arr1 = array([
-  //     [1, 2, 3],
-  //     [4, 5, 6],
-  //   ]);
-  //   const scalar = 10;
-  //   const result = broadcast(arr1, scalar, (a, b) => a + b);
-  //   expect(result).toEqual([
-  //     [11, 12, 13],
-  //     [14, 15, 16],
-  //   ]);
-  // });
+  it('should handle broadcasting with scalar values', () => {
+    const arr1 = array([
+      [1, 2, 3],
+      [4, 5, 6],
+    ]);
+    const scalar = 10;
+    const result = broadcast(arr1, scalar, (a, b) => a + b);
+    const check = array([
+      [11, 12, 13],
+      [14, 15, 16],
+    ]);
+    expect(result).toNDArrayEqual(check);
+  });
 
   it('should add arrays with one dimension being undefined', () => {
     const arr1 = array([[[1, 2]], [[3, 4]]]);

@@ -3,7 +3,18 @@ import { iterate } from '../operations/iterate/iterate';
 import { _shapesAreEqual } from './_shapes-are-equal';
 import { indexesToPosition } from './indexes-to-position';
 
-export function broadcast(a: NDArray, b: NDArray, action: (a, b) => number) {
+export function broadcast(
+  a: NDArray,
+  b: NDArray | number,
+  action: (a, b) => number
+) {
+  if (typeof b === 'number') {
+    b = new NDArray({
+      data: [b],
+      shape: [1],
+    });
+  }
+
   const broadcastShape = broadcastShapes(a, b);
   const aValues = [];
   const bValues = [];
