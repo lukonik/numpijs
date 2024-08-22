@@ -2,7 +2,7 @@ import { array } from '../array/array';
 import { reshape } from '../reshape/reshape';
 import { matMul } from './mat-mul';
 
-describe.only('matMul', () => {
+describe('matMul', () => {
   it('1D', () => {
     const a = array([1, 2, 3, 4, 5, 6]);
     const b = array([7, 8, 9, 10, 11, 12]);
