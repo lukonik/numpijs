@@ -12,7 +12,7 @@ describe('Add', () => {
       shape: [2, 3],
     });
 
-    const result = nd1.do(add(nd2));
+    const result = add(nd1, nd2);
     const check = new NDArray({
       shape: [2, 3],
       data: [8, 10, 12, 14, 16, 18],

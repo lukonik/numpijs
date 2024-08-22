@@ -12,7 +12,7 @@ describe('Divide', () => {
       shape: [2, 3],
     });
 
-    const result = nd1.do(divide(nd2));
+    const result = divide(nd1, nd2);
     const check = new NDArray({
       shape: [2, 3],
       data: [

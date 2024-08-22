@@ -68,11 +68,6 @@ export class NDArray {
     this._data = _createStorageByType(data, this.dtype);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  do<T = NDArray>(...funcs: ((instance: NDArray) => any)[]): T {
-    return funcs.reduce((acc, func) => func(acc), this);
-  }
-
   get(position: number) {
     return this._data[position];
   }

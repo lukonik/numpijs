@@ -2,15 +2,15 @@ import { _elementWiseUpdate } from 'src/lib/common/_element-wise-update';
 import { DataTypes } from 'src/lib/ndarray/data-types';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 
-export function exp(options?: {
-  where: (value) => boolean;
+export function exp(options: {
+  nd: NDArray;
+  where?: (value) => boolean;
   dtype?: DataTypes;
 }) {
-  return (base: NDArray) =>
-    _elementWiseUpdate(
-      base,
-      (value) => Math.exp(value),
-      options?.where,
-      options?.dtype
-    );
+  return _elementWiseUpdate(
+    options.nd,
+    (value) => Math.exp(value),
+    options?.where,
+    options?.dtype
+  );
 }

@@ -1,22 +1,20 @@
 import { NDArray } from 'src/lib/ndarray/ndarray';
 
-export function reshape(shape: number[]) {
-  return (base: NDArray) => {
-    const copy = [...base.data];
+export function reshape(nd: NDArray, shape: number[]) {
+  const copy = [...nd.data];
 
-    const baseShapeTotal = totalSize(base.shape);
-    const newShapeTotal = totalSize(shape);
+  const baseShapeTotal = totalSize(nd.shape);
+  const newShapeTotal = totalSize(shape);
 
-    if (baseShapeTotal !== newShapeTotal) {
-      throw new Error('Shapes are incompatible');
-    }
+  if (baseShapeTotal !== newShapeTotal) {
+    throw new Error('Shapes are incompatible');
+  }
 
-    return new NDArray({
-      data: copy,
-      shape: shape,
-      dtype: base.dtype,
-    });
-  };
+  return new NDArray({
+    data: copy,
+    shape: shape,
+    dtype: nd.dtype,
+  });
 }
 
 function totalSize(shape: number[]) {
