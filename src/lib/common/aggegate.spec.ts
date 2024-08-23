@@ -14,6 +14,7 @@ describe('Aggregate', () => {
   it('Axis 1', () => {
     const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
+      initial: 0,
       axis: 0,
     });
 
@@ -26,6 +27,8 @@ describe('Aggregate', () => {
   it('Axis 2', () => {
     const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
+      initial: 0,
+
       axis: 1,
     });
 
@@ -38,6 +41,8 @@ describe('Aggregate', () => {
   it('Axis 3', () => {
     const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
+      initial: 0,
+
       axis: 2,
     });
 
@@ -51,6 +56,7 @@ describe('Aggregate', () => {
   it('Axis null', () => {
     const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
+      initial: 0,
     });
 
     expect(aggr).toBe(130);
@@ -60,6 +66,7 @@ describe('Aggregate', () => {
     const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       where: (value) => value < 10,
+      initial: 0,
     });
 
     expect(aggr).toBe(60);
@@ -68,6 +75,8 @@ describe('Aggregate', () => {
     const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       where: (value) => value < 10,
+      initial: 0,
+
       axis: 1,
     });
 
@@ -81,6 +90,8 @@ describe('Aggregate', () => {
     const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       where: (value) => value < 10,
+      initial: 0,
+
       axis: 2,
     });
 
@@ -94,6 +105,7 @@ describe('Aggregate', () => {
     const aggr = aggregate(nd, {
       action: (prev, curr) => prev + curr,
       where: (value) => value % 2 == 0,
+      initial: 0,
       axis: 2,
     });
 

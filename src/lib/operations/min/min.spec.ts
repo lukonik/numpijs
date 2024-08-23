@@ -1,8 +1,8 @@
 import { DataTypes } from 'src/lib/ndarray/data-types';
 import { NDArray } from 'src/lib/ndarray/ndarray';
-import { max } from './max';
+import { min } from './min';
 
-describe('max', () => {
+describe('min', () => {
   let nd: NDArray;
   beforeEach(() => {
     nd = new NDArray({
@@ -12,21 +12,21 @@ describe('max', () => {
     });
   });
   it('Axis null', () => {
-    expect(max(nd)).toBe(14);
+    expect(min(nd)).toBe(1);
   });
   it('Axis 0D', () => {
-    expect(max(nd, { axis: 0 })).toNDArrayEqual(
-      new NDArray({ data: [5, 6, 10, 7, 8, 13, 11, 12, 14], shape: [3, 3] })
+    expect(min(nd, { axis: 0 })).toNDArrayEqual(
+      new NDArray({ data: [1, 2, 3, 3, 4, 5, 9, 10, 7], shape: [3, 3] })
     );
   });
   it('Axis 1D', () => {
-    expect(max(nd, { axis: 1 })).toNDArrayEqual(
-      new NDArray({ data: [9, 10, 7, 11, 12, 14], shape: [2, 3] })
+    expect(min(nd, { axis: 1 })).toNDArrayEqual(
+      new NDArray({ data: [1, 2, 3, 5, 6, 10], shape: [2, 3] })
     );
   });
   it('Axis 2D', () => {
-    expect(max(nd, { axis: 2 })).toNDArrayEqual(
-      new NDArray({ data: [3, 5, 10, 10, 13, 14], shape: [2, 3] })
+    expect(min(nd, { axis: 2 })).toNDArrayEqual(
+      new NDArray({ data: [1, 3, 7, 5, 7, 11], shape: [2, 3] })
     );
   });
 });

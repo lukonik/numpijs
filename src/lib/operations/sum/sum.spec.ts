@@ -1,8 +1,8 @@
+import { DataTypes } from 'src/lib/ndarray/data-types';
 import { NDArray } from 'src/lib/ndarray/ndarray';
 import { sum } from './sum';
-import { DataTypes } from 'src/lib/ndarray/data-types';
 
-describe('Sum', () => {
+describe('max', () => {
   let nd: NDArray;
   beforeEach(() => {
     nd = new NDArray({
@@ -11,39 +11,22 @@ describe('Sum', () => {
       shape: [2, 3, 3],
     });
   });
-  it('Axis 1', () => {
-    const aggr = sum(nd, {
-      axis: 0,
-    });
-    const check = new NDArray({
-      data: [6, 8, 13, 10, 12, 18, 20, 22, 21],
-      shape: [3, 3],
-    });
-    expect(aggr).toNDArrayEqual(check);
-  });
-  it('Axis 2', () => {
-    const aggr = sum(nd, {
-      axis: 1,
-    });
-    const check = new NDArray({
-      data: [13, 16, 15, 23, 26, 37],
-      shape: [2, 3],
-    });
-    expect(aggr).toNDArrayEqual(check);
-  });
-  it('Axis 3', () => {
-    const aggr = sum(nd, {
-      axis: 2,
-    });
-    const check = new NDArray({
-      data: [6, 12, 26, 21, 28, 37],
-      shape: [2, 3],
-    });
-    expect(aggr).toNDArrayEqual(check);
-  });
-
   it('Axis null', () => {
-    const aggr = sum(nd);
-    expect(aggr).toBe(130);
+    expect(sum(nd)).toBe(130);
+  });
+  it('Axis 0D', () => {
+    expect(sum(nd, { axis: 0 })).toNDArrayEqual(
+      new NDArray({ data: [6, 8, 13, 10, 12, 18, 20, 22, 21], shape: [3, 3] })
+    );
+  });
+  it('Axis 1D', () => {
+    expect(sum(nd, { axis: 1 })).toNDArrayEqual(
+      new NDArray({ data: [13, 16, 15, 23, 26, 37], shape: [2, 3] })
+    );
+  });
+  it('Axis 2D', () => {
+    expect(sum(nd, { axis: 2 })).toNDArrayEqual(
+      new NDArray({ data: [6, 12, 26, 21, 28, 37], shape: [2, 3] })
+    );
   });
 });
