@@ -29,7 +29,7 @@ export function sum(
 ) {
   return aggregate(nd, {
     axis: options?.axis,
-    initial: options?.initial,
+    initial: options?.initial ?? 0,
     action: (prev, curr) => prev + curr,
     where: options?.where,
   });

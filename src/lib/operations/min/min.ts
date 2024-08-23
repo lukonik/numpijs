@@ -5,12 +5,12 @@ import { NDArray } from 'src/lib/ndarray/ndarray';
  * Returns the maximum value of the NDArray
  * @example
  * ```
- * import max from "numpijs"
+ * import min from "numpijs"
  * const nd = new NDArray({
  * data: [1, 2, 3, 4],
  * shape: [2, 2],
  * })
- * const max = max(nd) // 4
+ * const max = max(nd) // 1
  * ```
  * @param nd NDArray
  * @param options options
@@ -19,7 +19,7 @@ import { NDArray } from 'src/lib/ndarray/ndarray';
  * @param options.where condition to filter the values
  * @returns NDArray maximum value
  */
-export function max(
+export function min(
   nd: NDArray,
   options?: {
     axis?: number | null;
@@ -34,7 +34,7 @@ export function max(
       if (prev === undefined) {
         return curr;
       }
-      return prev > curr ? prev : curr;
+      return prev < curr ? prev : curr;
     },
     where: options?.where,
   });

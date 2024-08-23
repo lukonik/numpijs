@@ -4,9 +4,9 @@ import { indexesToPosition } from './indexes-to-position';
 
 export function aggregate(
   nd: NDArray,
-  options?: {
+  options: {
     axis?: null | number;
-    initial?: number | null;
+    initial: number | null;
     action: (prev, curr) => number;
     where?: (value) => boolean;
   }
@@ -14,7 +14,7 @@ export function aggregate(
   if (options.axis === null || options.axis === undefined) {
     const allValues = Array.from(iterate(nd)).map((d) => d.value);
 
-    const initialValue = options?.initial ?? 0;
+    const initialValue = options.initial;
     let result = initialValue;
     for (let value of allValues) {
       if (options?.where && !options.where(value)) {
@@ -43,7 +43,7 @@ export function aggregate(
   const grouppedIndexes = groupBy(allIndexesHash, (k) => k.key);
 
   const result = [];
-  const initialValue = options?.initial ?? 0;
+  const initialValue = options.initial;
   for (const key of Object.keys(grouppedIndexes)) {
     let accumulate = initialValue;
     const grouppedIndex = grouppedIndexes[key];
