@@ -14,6 +14,11 @@ describe('max', () => {
   it('Axis null', () => {
     expect(max(nd)).toBe(14);
   });
+  it('Axis 0D', () => {
+    expect(max(nd, { axis: 0 })).toNDArrayEqual(
+      new NDArray({ data: [5, 6, 10, 7, 8, 13, 11, 12, 14], shape: [3, 3] })
+    );
+  });
   it('Axis 1D', () => {
     expect(max(nd, { axis: 1 })).toNDArrayEqual(
       new NDArray({ data: [9, 10, 7, 11, 12, 14], shape: [2, 3] })
